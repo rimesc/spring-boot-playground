@@ -15,6 +15,7 @@
 	<description>Playground project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
+    <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -41,7 +42,7 @@
 		<dependency>
 			<groupId>de.flapdoodle.embed</groupId>
 			<artifactId>de.flapdoodle.embed.mongo</artifactId>
-      <version>3.4.5</version>
+			<version>3.4.5</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -54,7 +55,17 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>${org.mapstruct.version}</version>
+		</dependency>
+    <dependency>
+      <groupId>com.aventrix.jnanoid</groupId>
+      <artifactId>jnanoid</artifactId>
+      <version>2.0.0</version>
+    </dependency>
+  </dependencies>
 
 	<build>
 		<plugins>
@@ -102,6 +113,23 @@
 						<phase>test</phase>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<source>17</source> <!-- depending on your project -->
+					<target>17</target> <!-- depending on your project -->
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.mapstruct</groupId>
+							<artifactId>mapstruct-processor</artifactId>
+							<version>${org.mapstruct.version}</version>
+						</path>
+						<!-- other annotation processors -->
+					</annotationProcessorPaths>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
