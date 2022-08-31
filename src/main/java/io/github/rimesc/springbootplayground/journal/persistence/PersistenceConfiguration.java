@@ -26,7 +26,7 @@ class PersistenceConfiguration {
   @Bean
   ReactiveAuditorAware<String> auditorAware() {
     return () -> Mono.justOrEmpty(SecurityContextHolder.getContext())
-      .map(SecurityContext::getAuthentication)
+      .mapNotNull(SecurityContext::getAuthentication)
       .filter(Authentication::isAuthenticated)
       .map(Authentication::getName);
   }
