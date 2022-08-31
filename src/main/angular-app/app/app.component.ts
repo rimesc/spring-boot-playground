@@ -18,4 +18,6 @@ export class AppComponent {
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
+  title: string = 'Spring Boot Playground'
+
 }

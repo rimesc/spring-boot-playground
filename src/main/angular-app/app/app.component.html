@@ -7,7 +7,7 @@
     *ngIf="isHandset$ | async">
     <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
   </button>
-  <span>angular-app</span>
+  <span>{{ title }}</span>
 </mat-toolbar>
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav"
