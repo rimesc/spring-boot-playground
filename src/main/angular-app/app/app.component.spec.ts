@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatListModule } from '@angular/material/list'
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatToolbarModule } from '@angular/material/toolbar'
+import { AppRoutingModule } from './app-routing.module'
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -18,6 +19,7 @@ describe('AppComponent', () => {
         AppComponent
       ],
       imports: [
+        AppRoutingModule,
         NoopAnimationsModule,
         LayoutModule,
         MatButtonModule,
