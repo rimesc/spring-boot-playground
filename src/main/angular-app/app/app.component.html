@@ -15,7 +15,13 @@
                [mode]="(isHandset$ | async) ? 'over' : 'side'"
                [opened]="(isHandset$ | async) === false">
     <mat-nav-list>
-      <a mat-list-item href="#" *ngFor="let entry of entries | async">
+      <a mat-list-item
+         *ngFor="let entry of entries | async"
+         #tooltip="matTooltip"
+         matTooltip="{{entry.author}} on {{entry.created | date : 'full'}}"
+         matTooltipPosition="right"
+         matTooltipShowDelay="500"
+         href="#">
         <span>{{ entry.title }}</span>
       </a>
     </mat-nav-list>
