@@ -7,11 +7,9 @@ import { Observable } from 'rxjs'
   providedIn: 'root'
 })
 export class EntriesService {
-
-  constructor(private http: HttpClient) { }
+  constructor (private http: HttpClient) { }
 
   listEntries (): Observable<Entry[]> {
     return this.http.get<Entry[]>('/api/journal/entries/')
   }
-
 }

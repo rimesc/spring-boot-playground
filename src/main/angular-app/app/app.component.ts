@@ -11,7 +11,6 @@ import { Entry } from './entry'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-
   entries!: Observable<Entry[]>
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -28,5 +27,4 @@ export class AppComponent implements OnInit {
   ngOnInit (): void {
     this.entries = this.entriesService.listEntries()
   }
-
 }

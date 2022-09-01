@@ -28,18 +28,18 @@ describe('AppComponent', () => {
         MatIconModule,
         MatListModule,
         MatSidenavModule,
-        MatToolbarModule,
-      ],
-    }).compileComponents();
-  });
+        MatToolbarModule
+      ]
+    }).compileComponents()
+  })
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AppComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.createComponent(AppComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create the app', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})
