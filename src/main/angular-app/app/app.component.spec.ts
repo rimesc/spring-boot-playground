@@ -7,11 +7,12 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatListModule } from '@angular/material/list'
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatToolbarModule } from '@angular/material/toolbar'
+import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module'
 
 describe('AppComponent', () => {
-  let component: AppComponent;
-  let fixture: ComponentFixture<AppComponent>;
+  let component: AppComponent
+  let fixture: ComponentFixture<AppComponent>
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -21,6 +22,7 @@ describe('AppComponent', () => {
       imports: [
         AppRoutingModule,
         NoopAnimationsModule,
+        HttpClientModule,
         LayoutModule,
         MatButtonModule,
         MatIconModule,
