@@ -8,6 +8,10 @@
       "files": [
         "*.ts"
       ],
+      "env": {
+        "jasmine": true,
+        "browser": true
+      },
       "parserOptions": {
         "project": [
           "tsconfig.json"
@@ -35,7 +39,8 @@
             "prefix": "app",
             "style": "kebab-case"
           }
-        ]
+        ],
+        "no-unused-vars": "off"
       }
     },
     {
