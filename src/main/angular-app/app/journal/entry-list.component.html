@@ -1,11 +1,3 @@
 <mat-nav-list>
-  <a mat-list-item
-     *ngFor="let entry of entries | async"
-     #tooltip="matTooltip"
-     matTooltip="{{entry.author}} on {{entry.created | date : 'full'}}"
-     matTooltipPosition="right"
-     matTooltipShowDelay="500"
-     href="#">
-    <span>{{ entry.title }}</span>
-  </a>
+  <app-entry-list-item *ngFor="let entry of entries | async" [entry]="entry"></app-entry-list-item>
 </mat-nav-list>
