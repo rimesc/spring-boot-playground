@@ -1,0 +1,13 @@
+<a mat-list-item [routerLink]="entry.id">
+  <span class="entry-title" matLine>{{ entry.title }}</span>
+  <span matLine>
+    <span class="entry-author">
+      <mat-icon fontIcon="person" inline style="vertical-align: bottom"></mat-icon>
+      {{ entry.author }}
+    </span>
+    <span class="entry-created">
+      <mat-icon fontIcon="calendar_month" inline style="vertical-align: bottom"></mat-icon>
+      {{ entry.created | date : 'short' }}
+    </span>
+  </span>
+</a>
