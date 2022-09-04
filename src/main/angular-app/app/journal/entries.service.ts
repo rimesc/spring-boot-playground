@@ -7,9 +7,14 @@ import { Entry } from './entry'
   providedIn: 'root'
 })
 export class EntriesService {
-  constructor (private http: HttpClient) { }
+  constructor (private http: HttpClient) {
+  }
 
   listEntries (): Observable<Entry[]> {
     return this.http.get<Entry[]>('/api/journal/entries/')
+  }
+
+  getEntry (id: string): Observable<Entry> {
+    return this.http.get<Entry>(`/api/journal/entries/${id}`)
   }
 }
