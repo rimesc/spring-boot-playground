@@ -1,0 +1,3 @@
+<div *ngIf="entry$ | async as entry" class="entry-content">
+  <markdown [data]="entry.content"></markdown>
+</div>

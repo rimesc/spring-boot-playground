@@ -1,4 +1,4 @@
-<a mat-list-item [routerLink]="entry.id">
+<a mat-list-item [routerLink]="['entries', entry.id]" routerLinkActive="active">
   <span class="entry-title" matLine>{{ entry.title }}</span>
   <span matLine>
     <span class="entry-author">
