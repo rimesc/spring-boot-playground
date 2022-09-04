@@ -1,5 +1,3 @@
 <div *ngIf="entry$ | async as entry" class="entry-content">
-  <p *ngFor="let paragraph of paragraphs(entry)">
-    {{paragraph}}
-  </p>
+  <markdown [data]="entry.content"></markdown>
 </div>

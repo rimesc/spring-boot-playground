@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { By } from '@angular/platform-browser'
 import { ActivatedRoute } from '@angular/router'
+import { MarkdownModule } from 'ngx-markdown'
 import { of } from 'rxjs'
 import { ActivatedRouteStub } from '../../testing/activated-route-stub'
 import { EntriesService } from './entries.service'
@@ -18,7 +19,7 @@ describe('EntryDetailComponent', () => {
     const entry = {
       id: 'abc123',
       title: 'My first entry',
-      content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      content: `# Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
 Phasellus quis suscipit nulla.
 
@@ -32,6 +33,7 @@ Aliquam cursus euismod vulputate.
 
     await TestBed.configureTestingModule({
       declarations: [EntryDetailComponent],
+      imports: [MarkdownModule.forRoot()],
       providers: [
         { provide: EntriesService, useValue: entriesService },
         { provide: ActivatedRoute, useValue: activatedRoute }
@@ -51,10 +53,9 @@ Aliquam cursus euismod vulputate.
 
   it('should display the entry content', () => {
     activatedRoute.setParamMap({ id: 'abc123' })
-    expect(fixture.debugElement.queryAll(By.css('p')).map(e => e.nativeElement.textContent.trim())).toEqual([
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      'Phasellus quis suscipit nulla.',
-      'Aliquam cursus euismod vulputate.'
-    ])
+    const h1: HTMLElement = fixture.debugElement.query(By.css('h1')).nativeElement
+    const paragraphs: HTMLElement[] = fixture.debugElement.queryAll(By.css('p')).map(e => e.nativeElement)
+    expect(h1.textContent).toEqual('Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
+    expect(paragraphs.map(e => e.textContent)).toEqual(['Phasellus quis suscipit nulla.', 'Aliquam cursus euismod vulputate.'])
   })
 })
