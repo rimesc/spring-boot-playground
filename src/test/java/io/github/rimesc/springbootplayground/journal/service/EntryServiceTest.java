@@ -79,11 +79,11 @@ public class EntryServiceTest {
         new EntryDocument("entry_5", "Fifth Entry", "Content of the fifth entry.")
       );
       StepVerifier.create(service.listEntries())
-        .expectNext(new Entry("entry_5", "Fifth Entry", "Content of the fifth entry.", "user", now(), null))
-        .expectNext(new Entry("entry_1", "First Entry", "Content of the first entry.", "user", now(), null))
-        .expectNext(new Entry("entry_4", "Fourth Entry", "Content of the fourth entry.", "user", now(), null))
-        .expectNext(new Entry("entry_2", "Second Entry", "Content of the second entry.", "user", now(), null))
-        .expectNext(new Entry("entry_3", "Third Entry", "Content of the third entry.", "user", now(), null))
+        .expectNext(new Entry("entry_5", "Fifth Entry", null, "user", now(), null))
+        .expectNext(new Entry("entry_1", "First Entry", null, "user", now(), null))
+        .expectNext(new Entry("entry_4", "Fourth Entry", null, "user", now(), null))
+        .expectNext(new Entry("entry_2", "Second Entry", null, "user", now(), null))
+        .expectNext(new Entry("entry_3", "Third Entry", null, "user", now(), null))
         .verifyComplete();
     }
 

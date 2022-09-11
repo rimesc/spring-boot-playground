@@ -95,11 +95,11 @@ public class EntryControllerTest {
         get()
           .expectStatus().isOk()
           .expectBodyList(Entry.class).contains(
-            new Entry(ids.get(4), "Fifth Entry", "Curabitur consequat nec justo sed varius.", "user", entry5Created, NOW.truncatedTo(MILLIS)),
-            new Entry(ids.get(0), "First Entry", "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "user", NOW.truncatedTo(MILLIS), null),
-            new Entry(ids.get(3), "Fourth Entry", "Sed eget lorem est.", "user", NOW.truncatedTo(MILLIS), null),
-            new Entry(ids.get(1), "Second Entry", "Nulla nec finibus nisi.", "user", NOW.truncatedTo(MILLIS), null),
-            new Entry(ids.get(2), "Third Entry", "Fusce imperdiet, felis et hendrerit lacinia, enim ipsum venenatis quam.", "user", NOW.truncatedTo(MILLIS), null)
+            new Entry(ids.get(4), "Fifth Entry", null, "user", entry5Created, NOW.truncatedTo(MILLIS)),
+            new Entry(ids.get(0), "First Entry", null, "user", NOW.truncatedTo(MILLIS), null),
+            new Entry(ids.get(3), "Fourth Entry", null, "user", NOW.truncatedTo(MILLIS), null),
+            new Entry(ids.get(1), "Second Entry", null, "user", NOW.truncatedTo(MILLIS), null),
+            new Entry(ids.get(2), "Third Entry", null, "user", NOW.truncatedTo(MILLIS), null)
           );
       }
 

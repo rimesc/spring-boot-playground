@@ -20,9 +20,9 @@ public interface EntryMapper {
    * @param entry entry to map
    * @return an API resource representing the entry
    */
-  @Mapping(source="createdBy", target="author")
-  @Mapping(source="createdAt", target="created")
-  @Mapping(source="lastModifiedAt", target="edited")
+  @Mapping(source = "createdBy", target = "author")
+  @Mapping(source = "createdAt", target = "created")
+  @Mapping(source = "lastModifiedAt", target = "edited")
   Entry entryToResource(EntryDocument entry);
 
 }
