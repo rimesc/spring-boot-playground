@@ -56,7 +56,7 @@ public class EntryService {
   }
 
   private Flux<Entry> listEntries(final Sort sort) {
-    return repository.findAll(sort).map(mapper::entryToResource);
+    return repository.listEntries(sort).map(mapper::entryToResource);
   }
 
   public Mono<Entry> editEntry(final String id, @Nullable final String newTitle, @Nullable final String newContent) {
