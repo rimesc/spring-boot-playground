@@ -1,3 +1,8 @@
 export const environment = {
-  production: true
+  production: true,
+  auth0: {
+    domain: '',
+    clientId: '',
+    audience: ''
+  }
 }

@@ -1,5 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout'
 import { Component } from '@angular/core'
+import { AuthService } from '@auth0/auth0-angular'
 import { Observable } from 'rxjs'
 import { map, shareReplay } from 'rxjs/operators'
 
@@ -15,8 +16,18 @@ export class AppComponent {
       shareReplay()
     )
 
-  constructor (private breakpointObserver: BreakpointObserver) {
+  constructor (private authService: AuthService, private breakpointObserver: BreakpointObserver) {
   }
 
   title: string = 'Spring Boot Playground'
+
+  isLoggedIn = this.authService.isAuthenticated$
+
+  logout () {
+    this.authService.logout()
+  }
+
+  login () {
+    this.authService.loginWithRedirect()
+  }
 }

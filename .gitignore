@@ -54,3 +54,8 @@ yarn-error.log
 /libpeerconnection.log
 testem.log
 /typings
+
+# Local configuration
+/application-local.properties
+/src/main/angular-app/environments/environment.local.ts
+
