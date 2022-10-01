@@ -21,6 +21,7 @@ import { AppComponent } from './app.component'
     AppRoutingModule,
     AuthModule.forRoot({
       ...environment.auth0,
+      cacheLocation: 'localstorage',
       httpInterceptor: {
         allowedList: ['/api/*']
       }
