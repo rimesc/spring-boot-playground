@@ -8,6 +8,24 @@
     <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
   </button>
   <span>{{ title }}</span>
+  <span class="spacer"></span>
+  <ng-container *ngIf="isLoggedIn | async; else loggedOut">
+    <a
+
+      aria-label="Log out"
+      mat-icon-button
+      (click)="logout()">
+      <mat-icon>logout</mat-icon>
+    </a>
+  </ng-container>
+  <ng-template #loggedOut>
+    <a
+      aria-label="Log in"
+      mat-icon-button
+      (click)="login()">
+      <mat-icon>login</mat-icon>
+    </a>
+  </ng-template>
 </mat-toolbar>
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav"
