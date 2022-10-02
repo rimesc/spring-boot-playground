@@ -7,6 +7,7 @@ import static org.springframework.data.domain.Sort.sort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.lang.Nullable;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -35,6 +36,7 @@ public class EntryService {
     this.mapper = mapper;
   }
 
+  @PreAuthorize("hasRole('write:journal')")
   public Mono<Entry> createEntry(final String title, final String content) {
     try {
       final EntryDocument entry = new EntryDocument(uniqueId.create(), requireNonNull(title), requireNonNull(content));
@@ -46,11 +48,13 @@ public class EntryService {
   }
 
   @Transactional(readOnly = true)
+  @PreAuthorize("hasRole('read:journal')")
   public Mono<Entry> getEntry(final String id) {
     return repository.findById(id).map(mapper::entryToResource);
   }
 
   @Transactional(readOnly = true)
+  @PreAuthorize("hasRole('read:journal')")
   public Flux<Entry> listEntries() {
     return listEntries(sort(EntryDocument.class).by(EntryDocument::getTitle).ascending());
   }
@@ -59,6 +63,7 @@ public class EntryService {
     return repository.listEntries(sort).map(mapper::entryToResource);
   }
 
+  @PreAuthorize("hasRole('write:journal')")
   public Mono<Entry> editEntry(final String id, @Nullable final String newTitle, @Nullable final String newContent) {
     return repository.findById(id).flatMap(entry -> doEditEntry(entry, newTitle, newContent)).map(mapper::entryToResource);
   }
